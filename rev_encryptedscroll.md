@@ -8,7 +8,7 @@ The first thing I attempted was to run ```strings``` again to see if there was a
 
 ![alt strings](examples/rev_ESstrings.png)
 
-After dumping the strings, I found nothing of worth, you can see the scrolling text that appears when you rrun the binary and then awaits the input, however there is one section that may prevent us from opening this within a debugger, this being the ```anti_debug``` string, this implies there may be a function that will prevent us from debugging this, and with further testing, such as attaching GDB to this, we can see:
+After dumping the strings, I found nothing of worth, you can see the scrolling text that appears when you run the binary and then awaits the input, however there is one section that may prevent us from opening this within a debugger, this being the ```anti_debug``` string, this implies there may be a function that will prevent us from debugging this, and with further testing, such as attaching GDB to this, we can see:
 
 ![alt antidebug](examples/rev_ESantidebug.png)
 
@@ -20,7 +20,7 @@ Here looking at the analysed C code, its clear the ```anti_debug``` function is 
 
 ![alt antidebugger](examples/rev_ESantidebugger.png)
 
-The anti debugger function seems to use ptrace, store the output into lvar1 and then run an if statement seeing if it equals -1, if I just prevent this call with a quick patch in the assembly by changing the call to ptrace to just repeating its last instruction, in theory it should just never equal -1 and skip the check.
+The anti debugger function seems to use ptrace, store the output into ```lvar1``` and then run an if statement seeing if is equal to -1, if I just prevent this call with a quick patch in the assembly by changing the call to ptrace to just repeating its last instruction, in theory it should just never equal -1 and skip the check.
 
 
 ### Before
