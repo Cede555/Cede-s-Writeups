@@ -6,17 +6,17 @@ To begin with, the challenge provides a 64-bit ELF binary, the other two files s
 
 ![alt filetype](examples/filetype.png) 
 
-My first approach was to simply see any data stored inside, this can be done multiple ways, such as hex-dumping or checking for strings, i opted for the later, its raw output contained a few key pieces of information, firstly the some interesting function names:
+My first approach was to simply see any data stored inside, this can be done multiple ways, such as hex-dumping and/or checking for strings, I opted for the later as I can just run the ```strings``` command, its raw output contained a few key pieces of information, firstly I noticed some interesting function names:
 
 ![alt strings](examples/strings.png) 
 
 Before moving on, two of these stood out immediately, `base64_decode` and `reverse_str`.
 
-This implies there may be a reversed string, or reversed base64 encoded string within this binary, and with further observation we can see:
+This implies there may be a reversed string, and/or base64 encoded string within this binary, with further observation we can see:
 
 ![alt base64](examples/base64.png) 
 
-This string of characters looks very similar to what may be presented once you use base64 encoding on a string, so the next step would be to validate this theory,
+This string of characters looks very similar to what may be presented once you use base64 encoding on some data, so the next step would be to validate this theory,
 
 ![alt reversed](examples/reversed.png) 
 
