@@ -1,2 +1,6 @@
 # Cede-s-Writeups
-Here is Where i post my writeups for the CTF's I complete
+Here is where I post my writeups for any CTF's I compete in.
+
+Competed in:
+
+- Hackthebox Cyber Apocalypse CTF 2025
